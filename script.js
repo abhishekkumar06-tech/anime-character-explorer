@@ -39,3 +39,16 @@ function displayCharacters(characters) {
     `)
     .join("");
 }
+
+// Search Button
+searchBtn.addEventListener("click", () => {
+  const query = searchInput.value.trim();
+  if (query) fetchCharacters(query);
+});
+
+// Enter Key Support
+searchInput.addEventListener("keypress", (e) => {
+  if (e.key === "Enter") {
+    searchBtn.click();
+  }
+});
