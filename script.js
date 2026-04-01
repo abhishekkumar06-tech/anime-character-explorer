@@ -21,3 +21,21 @@ async function fetchCharacters(query) {
     loading.classList.add("hidden");
   }
 }
+
+// Display Characters using map()
+function displayCharacters(characters) {
+  if (!characters.length) {
+    container.innerHTML = "<p>No results found</p>";
+    return;
+  }
+
+  container.innerHTML = characters
+    .map(character => `
+      <div class="card">
+        <img src="${character.images.jpg.image_url}" alt="${character.name}" />
+        <h3>${character.name}</h3>
+        <p>❤️ ${character.favorites}</p>
+      </div>
+    `)
+    .join("");
+}
